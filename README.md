@@ -23,14 +23,14 @@ can be both dimensions or metrics
 
 1. year,quarter,month,date follow the one or two parameter mapping as below
 
-	date=2019-01-01	mapping to date=2019-01-01
-	date=2019-01-01&date=2019-02-01 mapping to "date between 2019-01-01 and 2019-02-01"
-	quarter=1&quarter=3 mapping to "quarter between 1 and 3"
+    date=2019-01-01   mapping just to "date=2019-01-01"
+    date=2019-01-01&date=2019-02-01 mapping to "date between 2019-01-01 and 2019-02-01"
+    quarter=1&quarter=3 mapping to "quarter between 1 and 3"
 
 2. campaign, datasource use only one with like operator
 
-	campaign=App*  mapping to "campaign like App%"
-	datasource=Tw*   mapping to "datasource like App%"
+    campaign=App*  mapping to "campaign like App%"
+    datasource=Tw*   mapping to "datasource like App%"
 
 ## Input Constraints
 1. Must have either dimensions or metrics
