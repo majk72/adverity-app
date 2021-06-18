@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  app:
+    image: 'docker-spring-boot-postgres:latest'
+    build:
+      context: .
+    container_name: adverity-app
+    volumes:
+      - app-share:/tmp/adverity
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - CSV_DATA_URL=http://adverity-challenge.s3-website-eu-west-1.amazonaws.com/PIxSyyrIKFORrCXfMYqZBI.csv
+      - CSV_DATA_TEMP_FILE=/tmp/adverity/adverity.csv
+      - SERVER_SERVLET_CONTEXT_PATH=/dw
+    ports:
+      - "80:8888"
+  db:
+    image: 'postgres:13.1-alpine'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+    volumes:
+      - app-share:/tmp/adverity
+    ports:
+      - "5432:5432"
+volumes:
+     app-share:
