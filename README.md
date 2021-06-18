@@ -21,14 +21,14 @@ Adverity Java Challenge API is Java based app with PostgreSQL db as backend. Dur
 ### filters
 can be both dimensions or metrics
 
-1. year,quarter,month,date follow the one or two parameter mapping as below
+#### year,quarter,month,date follow the one or two parameter mapping as below
 Param | Query
 --- | ---
 date=2019-01-01 | "date=2019-01-01"
 date=2019-01-01&date=2019-02-01 | "date between 2019-01-01 and 2019-02-01"
 quarter=1&quarter=3 | "quarter between 1 and 3"
 
-2. campaign, datasource use only one with like operator
+#### campaign, datasource use only one with like operator
 Param | Query
 --- | ---
 campaign=App* | "campaign like App%"
